@@ -8,7 +8,8 @@ from .models import Client
 @shared_task
 def check_due_payments():
     now = timezone.now()
-    clients = Client.objects.all(due_date__lte=now, email_sent=False)
+    clients = Client.objects.filter(due_date__lte=now, email_sent=False)
+
     for client in clients:
         subject = _('Payment Due')
         message = _('Payment Due Email')

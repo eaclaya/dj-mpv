@@ -10,7 +10,7 @@ class Client(models.Model):
     email_sent = models.BooleanField(default=False)
 
     def save(self, *args, **kwargs):
-        if self.due_date > timezone.now().date():
+        if self.due_date is not None and self.due_date > timezone.now().date():
             self.email_sent = False
         super().save(*args, **kwargs)
 

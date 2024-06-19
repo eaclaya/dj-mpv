@@ -12,7 +12,7 @@ def check_due_payments():
 
     for client in clients:
         subject = _('Payment Due')
-        message = _('Payment Due Email')
+        message = _('Hello') + ' ' + client.contact + ',\n' + _('Payment Due Email')
         sender = settings.DEFAULT_FROM_EMAIL
         send_mail(
             subject,

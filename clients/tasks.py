@@ -17,7 +17,7 @@ def check_due_payments():
             subject,
             message,
             sender,
-            ['ealexander.zm@gmail.com'],
+            [client.email],
             fail_silently=False,
         )
         client.email_sent = True
